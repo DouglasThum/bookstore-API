@@ -28,4 +28,28 @@ public class BookService {
 		categoryService.findById(id_cat);
 		return repository.findAllByCategory(id_cat);
 	}
+
+	public Book update(Integer id, Book obj) {
+		Book newObj = findById(id);
+		updatedData(newObj, obj);
+		return repository.save(newObj);
+	}
+	
+	private void updatedData(Book newObj, Book obj) {
+		newObj.setTitle(obj.getTitle());
+		newObj.setAuthor(obj.getAuthor());
+		newObj.setText(obj.getText());
+	}
+	
+	public Book patch(Integer id, Book obj) {
+		Book newObj = findById(id);
+		patchData(newObj, obj);
+		return repository.save(newObj);
+	}
+
+	private void patchData(Book newObj, Book obj) {
+		if(obj.getTitle() != null)newObj.setTitle(obj.getTitle());
+		if(obj.getAuthor() != null)newObj.setAuthor(obj.getAuthor());
+		if(obj.getText() != null)newObj.setText(obj.getText());
+	}	
 }
