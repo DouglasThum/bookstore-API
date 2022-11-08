@@ -14,14 +14,19 @@ import com.douglas.bookstore.service.exceptions.ObjectNotFoundException;
 public class CategoryService {
 	
 	@Autowired
-	private CategoryRepository categoryRepository;
+	private CategoryRepository repository;
 	
 	public Category findById(Integer id) {
-		Optional<Category> obj = categoryRepository.findById(id);
+		Optional<Category> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id: " + id + ", Type: " + Category.class.getName()));
 	}
 	
 	public List<Category> findAll() {
-		return categoryRepository.findAll();
+		return repository.findAll();
+	}
+	
+	public Category create(Category obj) {
+		obj.setId(null);
+		return repository.save(obj);
 	}
 }
