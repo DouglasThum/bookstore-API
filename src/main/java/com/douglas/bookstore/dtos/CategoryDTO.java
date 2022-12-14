@@ -14,12 +14,12 @@ public class CategoryDTO implements Serializable {
 	
 	private Integer id;
 	
-	@NotEmpty(message = "Field NAME can't be empty!")
-	@Length(min=3, max=100, message = "Field NAME must be between 3 and 100 characters")
+	@NotEmpty(message = "Campo NOME não pode ser vazio!")
+	@Length(min=3, max=100, message = "Campo DESCRIÇAÕ deve ter entre 3 e 100 caracteres!")
 	private String name;
 	
-	@NotEmpty(message = "Field DESCRIPTION can't be empty!")
-	@Length(min=3, max=200, message = "Field DESCRIPTION must be between 3 and 200 characters")
+	@NotEmpty(message = "Campo DESCRIÇÃO não pode ser vazio!")
+	@Length(min=3, max=200, message = "Campo DESCRIÇÃO deve ter entre 3 e 200 caracteres!")
 	private String description;
 	
 	public CategoryDTO() {
