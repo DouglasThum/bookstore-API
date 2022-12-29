@@ -23,7 +23,7 @@ public class Category implements Serializable{
 	private Integer id;
 	
 	@NotEmpty(message = "Campo NOME não pode ser vazio!")
-	@Length(min=3, max=100, message = "Campo DESCRIÇAÕ deve ter entre 3 e 100 caracteres!")
+	@Length(min=3, max=100, message = "Campo NOME deve ter entre 3 e 100 caracteres!")
 	private String name;
 	
 	@NotEmpty(message = "Campo DESCRIÇÃO não pode ser vazio!")
