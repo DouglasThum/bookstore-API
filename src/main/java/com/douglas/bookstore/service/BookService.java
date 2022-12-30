@@ -22,7 +22,7 @@ public class BookService {
 	
 	public Book findById(Integer id) {
 		Optional<Book> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id:" + id + ", Type:" + BookService.class.getName()));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id:" + id + ", Type:" + BookService.class.getName()));
 	}
 
 	public List<Book> findAll(Integer id_cat) {

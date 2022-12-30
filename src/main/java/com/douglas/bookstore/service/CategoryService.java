@@ -20,7 +20,7 @@ public class CategoryService {
 	
 	public Category findById(Integer id) {
 		Optional<Category> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id: " + id + ", Type: " + Category.class.getName()));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Type: " + Category.class.getName()));
 	}
 	
 	public List<Category> findAll() {
@@ -44,7 +44,7 @@ public class CategoryService {
 		try {
 			repository.deleteById(id);
 		} catch (org.springframework.dao.DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("Catogory can't be deleted. It has associated books.");
+			throw new DataIntegrityViolationException("Categoria não pode ser deletada! Há livros associados a ela!");
 		}
 	}
 }
